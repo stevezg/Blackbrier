@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
 import Homepage from './components/homepage'
+import LandingPage from './components/LandingPage'
+import Form from './components/form'
 // import LoginPage from './components/loginPage'
 import RegistrationPage from './components/registration-page'
 
 // import HeaderBar from './components/header-bar'
-import LandingPage from './components/landing-page'
+import landingpage from './components/landing-page'
 import Dashboard from './components/dashboard'
 import { refreshAuthToken } from './actions/auth'
 
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import { Switch } from 'react-router-dom'
 // import loginPage from './components/loginPage'
 
@@ -46,10 +48,12 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Route exact path="/login" component={LandingPage} />
+        <Route exact path="/login" component={landingpage} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/sign-up" component={RegistrationPage} />
         <Route exact path="/home" component={Homepage} />
+        <Route exact path="/landing" component={LandingPage} />
+        <Route exact path="/form" exact component={Form} />
       </div>
     )
   }
@@ -63,4 +67,4 @@ class App extends Component {
 //         </Switch>
 //       </Router> */}
 
-export default App
+export default withRouter(App)

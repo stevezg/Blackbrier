@@ -15,10 +15,6 @@ export class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    document.title = this.props.user
-      ? `${this.props.user}'s Posts`
-      : 'All Posts'
-
     this.props.dispatch(getListing())
   }
 
@@ -36,19 +32,8 @@ export class Homepage extends React.Component {
         <Navbar />
         <header className="App-header">
           <p>Smart Real Estate Contracts</p>
-          <button
-            onClick={() =>
-              this.setState({
-                readyToMakePost: !this.state.readyToMakePost
-              })
-            }
-          >
-            Create New Listing
-          </button>
         </header>
-        {this.state.readyToMakePost ? <Form /> : ''}
         <List />
-        <button onClick={() => {}} />
         <Footer />
       </div>
     )

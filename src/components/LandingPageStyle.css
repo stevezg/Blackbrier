@@ -1,0 +1,62 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.background {
+  backgroundsize: 'cover';
+  backgroundposition: 'center center';
+  backgroundrepeat: 'no-repeat';
+}
+.Header_landing {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.74;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 65px;
+  width: 75%;
+}
+.login {
+  position: absolute;
+  top: 8px;
+  right: 89px;
+  color: white;
+  text-decoration: none;
+}
+.sign-up {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  text-decoration: none;
+}
+.title {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+.market {
+  position: absolute;
+  top: 66%;
+  left: 39%;
+}
+.list-property-button {
+  position: absolute;
+  top: 75%;
+  left: 45%;
+  background-color: yellow;
+}
+.buttonText {
+  text-decoration: none;
+  color: black;
+}
+.searchForm {
+  width: 50%;
+  position: absolute;
+  top: 37%;
+  height: 38px;
+  left: 26%;
+  opacity: 0.69;
+}
