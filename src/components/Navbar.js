@@ -6,7 +6,7 @@ export default class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar">
-        <Link className="logo" to="/landing">
+        <Link className="logo" to="/">
           Prestige Worldwide
         </Link>
         <div className="right">
