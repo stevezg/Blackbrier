@@ -15,7 +15,8 @@ export class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getListing())
+    this.props.dispatch(getListing(this.props.match.params.searchTerm))
+    console.log(this.props.match.params.searchTerm)
   }
 
   componentWillUnmount() {

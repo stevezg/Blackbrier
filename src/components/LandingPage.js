@@ -6,13 +6,15 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getListing } from '../actions/listing'
 
 // import image from '../assets/image.jpeg'
 import './LandingPageStyle.css'
 import Form from './form'
 import { Homepage } from './homepage'
 
-export default class LandingPage extends Component {
+export class LandingPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,16 +24,8 @@ export default class LandingPage extends Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    //dispatch action to create new entry
-    //connect
-    // let listing = {}
-    // listing.title = this.state.Listing_title
-    // listing.price = this.state.price
-    // listing.location = this.state.location
-    // listing.description = this.state.description
-    // this.props.dispatch(createListing(listing)).then(() => {
-    //   this.props.dispatch(getListing())
-    // })
+    this.props.history.push(`/home/${this.state.searchTerm}`)
+    console.log(this.state.searchTerm)
   }
 
   handleSearchTermChange = e => {
@@ -75,3 +69,5 @@ export default class LandingPage extends Component {
     )
   }
 }
+
+export default connect()(LandingPage)
