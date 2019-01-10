@@ -8,7 +8,8 @@ import {
   Route,
   Link,
   Switch,
-  Redirect
+  Redirect,
+  withRouter
 } from 'react-router-dom'
 
 export class Form extends React.Component {
@@ -33,8 +34,6 @@ export class Form extends React.Component {
       this.setState({ [key]: '' })
     })
 
-    //dispatch action to create new entry
-    //connect
     alert(`a property has been submitted with
     Title: ${this.state.Listing_title}
     Description: ${this.state.description}
@@ -48,6 +47,7 @@ export class Form extends React.Component {
     this.props.dispatch(createListing(listing)).then(() => {
       this.props.dispatch(getListing())
     })
+    this.props.history.push('/home')
   }
 
   handleTitleChange = e => {
@@ -73,62 +73,60 @@ export class Form extends React.Component {
 
   render() {
     return (
-      <Router>
-        <div>
-          <NavBar />
-          <div className="form">
-            <h1>Add Your Property</h1>
-            <h4>Sell your property to the most qualified buyers</h4>
-            <form onSubmit={this.handleSubmit} ref="form">
-              <label>
-                Name
-                <input
-                  type="text"
-                  name="Listing_title"
-                  value={this.state.Listing_title}
-                  onChange={this.handleTitleChange}
-                  autoComplete="off"
-                />
-              </label>
-              <label>
-                Description:
-                <input
-                  onChange={this.handleDescriptionChange}
-                  value={this.state.description}
-                  type="text"
-                  name="Description"
-                  autoComplete="off"
-                />
-              </label>
-              <label>
-                Price:
-                <input
-                  required="true"
-                  type="number"
-                  name="Price"
-                  value={this.state.price}
-                  onChange={this.handlePriceChange}
-                  autoComplete="off"
-                />
-              </label>
-              <label>
-                Location:
-                <input
-                  type="text"
-                  name="Location"
-                  value={this.state.location}
-                  onChange={this.handleLocationChange}
-                  autoComplete="off"
-                />
-              </label>
-              <input type="submit" value="Submit" />
-              <Link to="/sign-up">
-                <p className="sign-up">Sign Up</p>
-              </Link>
-            </form>
-          </div>
+      <div>
+        <NavBar />
+        <div className="form">
+          <h1>Add Your Property</h1>
+          <h4>Sell your property to the most qualified buyers</h4>
+          <form onSubmit={this.handleSubmit} ref="form">
+            <label>
+              Name
+              <input
+                type="text"
+                name="Listing_title"
+                value={this.state.Listing_title}
+                onChange={this.handleTitleChange}
+                autoComplete="off"
+              />
+            </label>
+            <label>
+              Description:
+              <input
+                onChange={this.handleDescriptionChange}
+                value={this.state.description}
+                type="text"
+                name="Description"
+                autoComplete="off"
+              />
+            </label>
+            <label>
+              Price:
+              <input
+                required="true"
+                type="number"
+                name="Price"
+                value={this.state.price}
+                onChange={this.handlePriceChange}
+                autoComplete="off"
+              />
+            </label>
+            <label>
+              Location:
+              <input
+                type="text"
+                name="Location"
+                value={this.state.location}
+                onChange={this.handleLocationChange}
+                autoComplete="off"
+              />
+            </label>
+            <input type="submit" value="Submit" />
+            <Link to="/sign-up">
+              <p className="sign-up">Sign Up</p>
+            </Link>
+          </form>
         </div>
-      </Router>
+      </div>
     )
   }
 }

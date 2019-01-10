@@ -60,7 +60,7 @@ export default class LandingPage extends Component {
             name="Listing_title"
             value={this.state.searchTerm}
             onChange={this.handleSearchTermChange}
-            autocomplete="off"
+            autoComplete="off"
           />
         </form>
 

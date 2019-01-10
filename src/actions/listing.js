@@ -3,28 +3,6 @@ import { SubmissionError } from 'redux-form'
 import { API_BASE_URL } from '../config'
 import { normalizeResponseErrors } from './utils'
 
-export const createListing = listing => dispatch => {
-  return fetch(`${API_BASE_URL}/listing`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    body: JSON.stringify(listing)
-  })
-    .then(res => res.json())
-    .catch(err => {
-      const { reason, message, location } = err
-      if (reason === 'ValidationError') {
-        // Convert ValidationErrors into SubmissionErrors for Redux Form
-        return Promise.reject(
-          new SubmissionError({
-            [location]: message
-          })
-        )
-      }
-    })
-}
-
 export const REMOVELISTINGSUCCESS = 'REMOVELISTINGSUCCESS'
 const removeListingSuccess = () => {
   return {
@@ -45,10 +23,35 @@ const updateListingSuccess = data => {
     data
   }
 }
+export const createListing = listing => dispatch => {
+  return fetch(`${API_BASE_URL}/listing`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `bearer ${localStorage.authToken}`
+    },
+    body: JSON.stringify(listing)
+  })
+    .then(res => res.json())
+    .catch(err => {
+      const { reason, message, location } = err
+      if (reason === 'ValidationError') {
+        // Convert ValidationErrors into SubmissionErrors for Redux Form
+        return Promise.reject(
+          new SubmissionError({
+            [location]: message
+          })
+        )
+      }
+    })
+}
 
 export const getListing = () => dispatch => {
   return fetch(`${API_BASE_URL}/listing`, {
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      authorization: `bearer ${localStorage.authToken}`
+    }
   })
     .then(res => res.json())
     .then(data => {
@@ -69,7 +72,10 @@ export const getListing = () => dispatch => {
 
 export const removeListingAction = id => dispatch => {
   return fetch(`${API_BASE_URL}/listing/${id}`, {
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      authorization: `bearer ${localStorage.authToken}`
+    }
   })
     .then(() => {
       dispatch(removeListingSuccess())
