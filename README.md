@@ -2,8 +2,8 @@
 
 ### a platform where users can post and look at properties
 
- #### https://blackbrier.herokuapp.com/ 
+### https://trello.com/b/1qek4Klp/blackbrier 
 
 #### Tech Stack: Node backend, Express routing, Mongo database, React frontend
 
-### https://trello.com/b/1qek4Klp/blackbrier
+#### https://blackbrier.herokuapp.com/
