@@ -11,7 +11,7 @@ export default class Navbar extends React.Component {
         </Link>
         <div className="right">
           <Link to="/login">Log in</Link>
-          <text> | </text>
+
           <Link to="/sign-up">Sign up</Link>
         </div>
       </nav>

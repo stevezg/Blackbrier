@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage'
 import Form from './components/form'
 // import LoginPage from './components/loginPage'
 import RegistrationPage from './components/registration-page'
+import Terms from './components/Terms'
 
 // import HeaderBar from './components/header-bar'
 import landingpage from './components/landing-page'
@@ -54,6 +55,7 @@ class App extends Component {
         <Route exact path="/home/:searchTerm" component={Homepage} />
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/form" exact component={Form} />
+        <Route exact path="/terms" exact component={Terms} />
       </div>
     )
   }

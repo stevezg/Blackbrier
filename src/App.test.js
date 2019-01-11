@@ -1,9 +1,11 @@
 import React from 'react';
+import {shallow} from 'enzyme';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Adapter from 'enzyme-adapter-react-15';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+describe('<App/>', () => {
+    it.only('Renders without crashing', () => {
+        shallow(<App />);
+    });
 });

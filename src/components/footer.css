@@ -1,9 +1,15 @@
 
 footer{
+
   background-color: black;
   padding:15px;
-  font-size:15px;
+  font-size:8px;
   color:white;
   text-align: right;
   border-top: 2px solid white;
+}
+
+.terms {
+  text-decoration: none;
+  color: white
 }

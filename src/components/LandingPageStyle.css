@@ -61,3 +61,33 @@
   opacity: 0.69;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 480px) {
+  .Header_landing {
+    padding-top: 127px;
+    -webkit-order: 999;
+    display: -webkit-flex;
+    -webkit-justify-content: space-around;
+    font-size: x-large;
+    top: 3%;
+  }
+  .searchForm {
+    left: 22%;
+    top: 53%;
+    width: 62%;
+    height: 10px;
+  }
+  .background {
+    width: 100%;
+  }
+  .market {
+      top: 85%;
+    left: 33%;
+    font-size: x-small;
+  }
+  .list-property-button {
+    top: 79%;
+    left: 38%;
+    border-radius: 15px;
+  }
+} /* Narrow */

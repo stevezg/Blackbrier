@@ -88,7 +88,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       Authorization: `Bearer ${authToken}`
     }
   })
-    .then(res => normalizeResponseErrors(res))
+
     .then(res => res.json())
     .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
     .catch(err => {
