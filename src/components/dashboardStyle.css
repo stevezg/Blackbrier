@@ -1,0 +1,95 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.background {
+  backgroundsize: 'cover';
+  backgroundposition: 'center center';
+  backgroundrepeat: 'no-repeat';
+}
+.Header_landing {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.74;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 65px;
+  width: 75%;
+}
+.login {
+  position: absolute;
+  top: 8px;
+  right: 89px;
+  color: white;
+  text-decoration: none;
+}
+.sign-up {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: white;
+  text-decoration: none;
+}
+.title {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+.market {
+  position: absolute;
+  top: 66%;
+  left: 39%;
+}
+.home-button {
+  position: absolute;
+  top: 37%;
+  left: 0%;
+  background-color: blue;
+
+}
+
+.buttonHomeText {
+  text-decoration: none;
+  color: white
+}
+.searchForm {
+  width: 50%;
+  position: absolute;
+  top: 37%;
+  height: 38px;
+  left: 26%;
+  opacity: 0.69;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 480px) {
+  .Header_landing {
+    padding-top: 127px;
+    -webkit-order: 999;
+    display: -webkit-flex;
+    -webkit-justify-content: space-around;
+    font-size: x-large;
+    top: 3%;
+  }
+  .searchForm {
+    left: 22%;
+    top: 53%;
+    width: 62%;
+    height: 10px;
+  }
+  .background {
+    width: 100%;
+  }
+  .market {
+    top: 85%;
+    left: 33%;
+    font-size: x-small;
+  }
+  .list-property-button {
+    top: 79%;
+    left: 38%;
+    border-radius: 15px;
+  }
+} /* Narrow */
