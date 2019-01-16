@@ -47,7 +47,7 @@ export const createListing = listing => dispatch => {
 }
 
 export const getListing = search => dispatch => {
-  return fetch(`${API_BASE_URL}/listing?searchTerm=${search}`, {
+  return fetch(`${API_BASE_URL}/listing?searchTerm=${search ? search : ''}`, {
     method: 'GET',
     headers: {
       authorization: `bearer ${localStorage.authToken}`
