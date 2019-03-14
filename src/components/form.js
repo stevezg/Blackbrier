@@ -34,11 +34,6 @@ export class Form extends React.Component {
       this.setState({ [key]: '' })
     })
 
-    alert(`a property has been submitted with
-    Title: ${this.state.Listing_title}
-    Description: ${this.state.description}
-    Price: ${this.state.price}
-    Location: ${this.state.location}`)
     let listing = {}
     listing.title = this.state.Listing_title
     listing.price = this.state.price
@@ -102,7 +97,7 @@ export class Form extends React.Component {
             <label>
               Price:
               <input
-                required="true"
+                required={true}
                 type="number"
                 name="Price"
                 value={this.state.price}

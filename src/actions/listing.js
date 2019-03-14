@@ -69,6 +69,29 @@ export const getListing = search => dispatch => {
       }
     })
 }
+export const getALLListings = () => dispatch => {
+  return fetch(`${API_BASE_URL}/listing/all`, {
+    method: 'GET',
+    headers: {
+      authorization: `bearer ${localStorage.authToken}`
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch(getListingSuccess(data))
+    })
+    .catch(err => {
+      const { reason, message, location } = err
+      if (reason === 'ValidationError') {
+        // Convert ValidationErrors into SubmissionErrors for Redux Form
+        return Promise.reject(
+          new SubmissionError({
+            [location]: message
+          })
+        )
+      }
+    })
+}
 
 export const removeListingAction = id => dispatch => {
   return fetch(`${API_BASE_URL}/listing/${id}`, {

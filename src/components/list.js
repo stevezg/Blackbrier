@@ -14,40 +14,44 @@ export class List extends Component {
     })
   }
   removeListing(id) {
-    console.log('remove listing')
-
-    this.props.dispatch(removeListingAction(id)).then(() => {
-      this.props.dispatch(getListing())
-    })
+    let shouldDelete = window.confirm('Are you sure?')
+    if (shouldDelete) {
+      this.props.dispatch(removeListingAction(id)).then(() => {
+        this.props.dispatch(getListing())
+      })
+    }
   }
 
   render() {
-    const listing = this.props.listing.map(item => {
-      return (
-        <div>
-          <button
-            onClick={() => {
-              this.editListing()
-            }}
-          >
-            Edit Listing
-          </button>
-          <button
-            onClick={() => {
-              this.removeListing(item.id)
-            }}
-          >
-            Remove Listing
-          </button>
-          <ul>
-            <li>{item.title}</li>
-            <li>{item.description}</li>
-            <li>{item.location}</li>
-            <li>${item.price}</li>
-          </ul>
-        </div>
-      )
-    })
+    let listing
+    if (this.props.listing) {
+      listing = this.props.listing.map(item => {
+        return (
+          <div>
+            <button
+              onClick={() => {
+                this.editListing()
+              }}
+            >
+              Edit Listing
+            </button>
+            <button
+              onClick={() => {
+                this.removeListing(item.id)
+              }}
+            >
+              Remove Listing
+            </button>
+            <ul>
+              <li>{item.title}</li>
+              <li>{item.description}</li>
+              <li>{item.location}</li>
+              <li>${item.price}</li>
+            </ul>
+          </div>
+        )
+      })
+    }
     return (
       <div>
         <p>Current Listings</p>

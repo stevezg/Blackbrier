@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import Form from './form'
 import List from './list'
+import { Link } from 'react-router-dom'
 
 import { getListing } from '../actions/listing'
 
@@ -15,8 +16,9 @@ export class Homepage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(getListing(this.props.match.params.searchTerm))
-    console.log(this.props.match.params.searchTerm)
+    if (this.props.match.params.searchTerm) {
+      this.props.dispatch(getListing(this.props.match.params.searchTerm))
+    }
   }
 
   componentWillUnmount() {
@@ -34,6 +36,12 @@ export class Homepage extends React.Component {
         <header className="App-header">
           <p>Smart Real Estate Contracts</p>
         </header>
+        <button className="button" onClick={() => {}}>
+          <Link className="buttonText" to="/form">
+            Add Listing
+            {/* Why isnt the page re-rendering */}
+          </Link>
+        </button>
         <List />
         <Footer />
       </div>

@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import './App.css'
+import { Route, withRouter } from 'react-router-dom'
+
 import Homepage from './components/homepage'
 import LandingPage from './components/LandingPage'
 import Form from './components/form'
-// import LoginPage from './components/loginPage'
 import RegistrationPage from './components/registration-page'
 import Terms from './components/Terms'
-
-// import HeaderBar from './components/header-bar'
 import landingpage from './components/landing-page'
 import Dashboard from './components/dashboard'
 import { refreshAuthToken } from './actions/auth'
-
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
-import { Switch } from 'react-router-dom'
-// import loginPage from './components/loginPage'
+import './App.css'
 
 class App extends Component {
   componentDidUpdate(prevProps) {
@@ -61,13 +55,5 @@ class App extends Component {
     )
   }
 }
-
-// {/* <Router>
-//         <Switch>
-//           <Route exact path="/" component={Homepage} />
-//           <Route exact path="/login" component={RegistrationPage} />
-//           {/* <Redirect exact from="*" to="/home" /> */}
-//         </Switch>
-//       </Router> */}
 
 export default withRouter(App)
