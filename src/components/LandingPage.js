@@ -47,7 +47,7 @@ export class LandingPage extends Component {
         <div className="container">
           <Navbar />
           <img className="background" src={require('../assets/image.jpeg')} />
-          <h1 className="Header_landing">Buying a Home. Done Right.</h1>
+          <h1 className="Header_landing">Making Real Estate Easier Through Smart Contracts</h1>
           <form onSubmit={this.handleSubmit}>
             <input
               className="searchForm"
